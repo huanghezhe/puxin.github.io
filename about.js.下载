@@ -1,0 +1,7 @@
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 3000) {
+    $('nav').hide();
+    $('#logo a').attr('href', '#');
+    $('.wrapper').css('margin-top', '100px');
+  }
+});
