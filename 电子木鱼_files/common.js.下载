@@ -1,0 +1,16 @@
+// if(window.location.host != "jy.cyou"){
+//     alert("请注意！倦意博客域名已经更改为 jy.cyou，本域名 " + window.location.host + " 即将弃用，到期将不再续费！\n点击【确定】跳转到新域名...");
+//     var url = window.location.href;
+//     var newurl = url.replace(window.location.host,"jy.cyou")
+//     window.location.href = newurl;
+// }
+// alert("本站即将进行备案\n工信部要求备案期间不可访问，所以这几天会暂时关闭网站，请大家稍等几天\n备案审核通过会第一时间开站，请大家互相转告\n粉丝群了解第一时间动态：714496433");
+// 统计代码
+!function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"K1nkltsDKnVtt2Rd",ck:"K1nkltsDKnVtt2Rd"});
+  !(function(c,i,e,b){
+  var h=i.createElement("script");
+  var f=i.getElementsByTagName("script")[0];
+  h.type="text/javascript";
+  h.crossorigin=true;
+  h.onload=function(){new c[b]["Monitor"]().init({id:"K8oqsJFmLBNHuhkw"});};
+  f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/perf/js-sdk-perf.min.js","LingQue");
