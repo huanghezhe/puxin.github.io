@@ -1,564 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <title>普信!!木鱼!!(白天开放)</title>
-    <link rel="stylesheet" href="./asset/css/default.css" />
-    <link rel="shortcut icon" href="./asset/img/icon.jpg" />
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="./asset/css/element.css" />
-    <style>
-      /* 平板以及手机的尺寸大小 */
-      @media screen and (max-width: 530px) {
-        body {
-          background-color: black;
-          color: #fff;
-        }
-        .qiaoji {
-          margin-top: 10%;
-          width: 100%;
-          height: 30vh;
-          text-align: center;
-        }
-        .muyu {
-          width: 211px;
-          height: 211px;
-          margin: 0 auto;
-        }
-        .sf {
-          animation: suofang 0.3s;
-        }
-        .gongde {
-          position: absolute;
-          left: 70%;
-          top: 24%;
-          transform: translateX(-50%);
-          width: 100px;
-          height: 30px;
-          font-size: 21px;
-        }
-        .gongdejiayi {
-          animation: textMove 0.6s;
-        }
-        .gongdeLuBox {
-          position: absolute;
-          width: 90%;
-          height: 600px;
-          top: 15%;
-          left: 50%;
-          transform: translateX(-50%);
-          border: 1px solid white;
-          background-color:  #000000;
-          z-index: 3;
-          animation: showBox 0.5s;
-          overflow-y: scroll;
-        }
-        .gongdeLuBox h1 {
-          text-align: center;
-        }
-        .userName {
-          width: 95%;
-          height: 50px;
-          line-height: 50px;
-          padding-left: 8px;
-          padding-right: 8px;
-          background-color: #606266;
-          border-radius: 5px;
-          font-size: 18px;
-          margin: 1% auto 0;
-          display: flex;
-          justify-content: space-between;
-          color: white;
-        }
-        .userName:nth-child(4) {
-          font-size: 25px;
-          font-weight: bold;
-          color: #000000;
-          background-color: #ff9a0a;
-        }
-        .userName:nth-child(5) {
-          font-size: 23px;
-          font-weight: 600;
-          color: #000000;
-          background-color: silver;
-        }
-        .userName:nth-child(6) {
-          font-size: 21px;
-          font-weight: 500;
-          color: #000000;
-          background-color:#eebe77;
-        }
-        .btns {
-          display: flex;
-          justify-content: space-between;
-          width: 70%;
-          margin: 40% auto 5%;
-        }
-        .close {
-          position: absolute;
-          right: 3%;
-          top: 1%;
-          width: 32px;
-          height: 32px;
-          background: url("asset/img/关闭.png") no-repeat;
-        }
-        .userNameBox {
-          width: 70%;
-          margin: 20% auto 0;
-        }
-        .shangchuanGD {
-          width: 70%;
-          margin: 20% auto 0;
-          text-align: center;
-        }
-        /* 反馈 */
-        .feedBack {
-          width: 90%;
-          margin: 20% auto 0;
-        }
-        .feedBack div {
-          text-align: center;
-        }
-        .version {
-          position: absolute;
-          right: 8%;
-        }
-      }
-      /* 电脑尺寸大小 */
-      @media screen and (min-width: 531px) {
-        body {
-          background-color: black;
-          color: #fff;
-        }
-        .qiaoji {
-          margin-top: 5%;
-          width: 100%;
-          height: 25vh;
-          text-align: center;
-        }
-        .muyu {
-          width: 211px;
-          height: 211px;
-          margin: 0 auto;
-        }
-        .sf {
-          animation: suofang 0.3s;
-        }
-        .gongde {
-          position: absolute;
-          left: 60%;
-          top: 24%;
-          transform: translateX(-50%);
-          width: 100px;
-          height: 30px;
-          font-size: 21px;
-        }
-        .gongdejiayi {
-          animation: textMove 0.6s;
-        }
-        .gongdeLuBox {
-          position: absolute;
-          width: 50%;
-          height: 625px;
-          top: 15%;
-          left: 50%;
-          transform: translateX(-50%);
-          border: 1px solid white;
-          background-color: black;
-          z-index: 3;
-          animation: showBox 0.5s;
-        }
-        .gongdeLuBox h1 {
-          text-align: center;
-        }
-        .userName {
-          width: 70%;
-          height: 45px;
-          line-height: 45px;
-          padding-left: 8px;
-          padding-right: 8px;
-          background-color: #606266;
-          border-radius: 5px;
-          font-size: 18px;
-          margin: 1% auto 0;
-          display: flex;
-          justify-content: space-between;
-          color: white;
-        }
-        .userName:nth-child(4) {
-          font-size: 25px;
-          font-weight: bold;
-          color: #000000;
-          background-color: #ff9a0a;
-        }
-        .userName:nth-child(5) {
-          font-size: 23px;
-          font-weight: 600;
-          color: #000000;
-          background-color: silver;
-        }
-        .userName:nth-child(6) {
-          font-size: 21px;
-          font-weight: 500;
-          color: #000000;
-          background-color:#eebe77;
-        }
-        .btns {
-          display: flex;
-          justify-content: space-between;
-          width: 30%;
-          margin: 10% auto 5%;
-        }
-        .close {
-          position: absolute;
-          right: 3%;
-          top: 1%;
-          width: 32px;
-          height: 32px;
-          background: url("asset/img/关闭.png") no-repeat;
-        }
-        .userNameBox {
-          width: 70%;
-          margin: 20% auto 0;
-        }
-        .shangchuanGD {
-          width: 70%;
-          margin: 20% auto 0;
-          text-align: center;
-        }
-        /* 反馈 */
-        .feedBack {
-          width: 90%;
-          margin: 20% auto 0;
-        }
-        .feedBack div {
-          text-align: center;
-        }
-        .version {
-          position: absolute;
-          right: 8%;
-        }
-      }
-      /* 木鱼 */
-      @keyframes suofang {
-        50% {
-          transform: scale(0.8, 0.8);
-        }
-        100% {
-          transform: scale(1, 1);
-        }
-      }
-      /* 字体向上消失 */
-      @keyframes textMove {
-        from {
-          top: 24%;
-          opacity: 1;
-        }
-        to {
-          top: 22%;
-          opacity: 0;
-        }
-      }
-      /* 弹窗出现动画 */
-      @keyframes showBox {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      [v-cloak] {
-        display: none;
-      }
-      .el-message-box {
-        --el-messagebox-width: 320px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app" v-cloak>
-      <!-- 敲击次数 -->
-      <div class="qiaoji" v-show="main">
-        <h2>今日普信汲取次数！</h2>
-        <br />
-        <h2>{{count}}</h2>
-      </div>
-      <!-- 功德 -->
-      <div class="gongde" :class="{gongdejiayi}">{{gongde}}</div>
-      <!-- 木鱼 -->
-	  <p align="center"><img src="15.png"></p>
-	  
-      <div class="muyu" :class="{sf}" @click="chuang" v-show="main">
-        <img src="./asset/img/muyu.jpg" />
-      </div>
-      <audio ref="ding" src="./asset/audio/muyu.mp3"></audio>
-      <!-- 提交与展示功德录 -->
-      <div class="btns" v-show="main">
-        <el-button type="warning" @click="openGD">普信录</el-button>
-        <el-button type="success" @click="commitGD">上传普信之力</el-button>
-        <el-button type="warning" @click="TodayGD">今日普信</el-button>
-      </div>
-      <!-- 功德录 -->
-      <div class="gongdeLuBox" v-show="gongdeLuBox">
-        <div class="close" @click="closeGD"></div>
-        <h1>{{ListOfQualities}}</h1>
-        <br />
-        <div class="userName" v-for="(item,index) in Data" :key="index">
-          <div>{{index+1}}.&nbsp;&nbsp;{{item.userName}}</div>
-          <div>{{item.count}}</div>
-        </div>
-      </div>
-      <!-- 上传功德 -->
-      <div class="gongdeLuBox" v-show="shuangchuanBox">
-        <div class="close" @click="closeGDL"></div>
-        <div
-          style="
-            text-align: center;
-            width: 90%;
-            margin: 30% auto 0;
-            font-size: 30px;
-          "
-        >
-          普信之力只可上传一次，不贪
-        </div>
-        <div class="userNameBox">
-          <el-input
-            type="text"
-            placeholder="请输入普信王子名字"
-            v-model.trim="text"
-            maxlength="8"
-            show-word-limit
-          >
-          </el-input>
-        </div>
-        <div class="shangchuanGD">
-          <el-button
-            type="success"
-            :plain="true"
-            :disabled="isCommit"
-            @click="GDbtn"
-            >上传普信之力</el-button
-          >
-        </div>
-      </div>
-      <!-- 版本号 -->
-      <div class="version">version:1.1.0</div>
-    </div>
-    <!-- 导入 Vue -->
-    <script src="./asset/js/Vue.js"></script>
-    <script src="./asset/js/axios.js"></script>
-    <!-- 禁止IOS用户双击缩放 -->
-    <script src="./asset/js/BanZoom.js"></script>
-    <!-- 引入组件库 -->
-    <script src="./asset/js/elementUI.js"></script>
-    <script src="asset/js/jjb.js"></script>
-    <script type="module">
-      let isclick = true;
-      let d = new Date().getDay();
-      const App = {
-        data() {
-          return {
-            main: true,
-            count: 0,
-            sf: false,
-            gongdejiayi: false,
-            gongde: "",
-            Data: [],
-            gongdeLuBox: false,
-            shuangchuanBox: false,
-            isCommit: "",
-            text: "",
-            sendMsg: 0,
-            ListOfQualities: "",
-          };
-        },
-        created() {
-
-          this.getData();
-          this.GetFristTime();
-          this.Time();
-          this.dangDang();
-          this.crazyTemple();
-        },
-        methods: {
-          // 总功德录数据
-          async getData() {
-            const { data } = await axios.get("rankingList");
-            this.Data = data.data;
-          },
-          // 今日功德数据
-          async getTodayData() {
-            const { data } = await axios.get("rankingListDate");
-            this.Data = data.data;
-          },
-          // 敲击次数
-          dangDang() {
-            let count = localStorage.getItem("count");
-            let sendMsg = localStorage.getItem("sendMsg");
-            if (count == null) {
-              localStorage.setItem("count", qqq("0"));
-            }
-            count = localStorage.getItem("count");
-            let counts = jjj(count);
-              if (Object.is(Number(counts),NaN)) {
-                this.$message.error("普信面前都作弊，真不怕遭报应啊。");
-                this.main = false;
-                location.href = "http://www.wchscu.cn/department_sjwk.html"
-              }
-            if (sendMsg === null) {
-              this.sendMsg = 0;
-            }else{
-              this.sendMsg = localStorage.getItem("sendMsg");
-            }
-            this.count = Number(counts);
-            if (counts == null) {
-              this.count = 0;
-            }
-          },
-          chuang() {
-            if (this.count < 10000) {
-              if (isclick) {
-                this.gongdejiayi = true;
-                isclick = false;
-                let ding = this.$refs.ding;
-                ding.play();
-                // 疯狂星期寺
-                if (d == 4) {
-                  this.gongde = "普信之力+2";
-                } else {
-                  this.gongde = "普信之力+1";
-                }
-
-                ding.addEventListener("ended", () => {
-                  isclick = true;
-                  this.sf = false;
-                  this.gongde = "";
-                  this.gongdejiayi = false;
-                });
-                this.sf = true;
-                // 疯狂星期寺
-                if (d == 4) {
-                  this.count += 2;
-                } else {
-                  this.count += 1;
-                }
-                let str = this.count.toString();
-                localStorage.setItem("count", qqq(str));
-              }
-            }
-          },
-          openGD() {
-            this.gongdeLuBox = !this.gongdeLuBox;
-            this.ListOfQualities = "普信录";
-            this.getData();
-          },
-          TodayGD() {
-            this.gongdeLuBox = !this.gongdeLuBox;
-            this.ListOfQualities = "今日普信榜";
-            this.getTodayData();
-          },
-          closeGD() {
-            this.gongdeLuBox = !this.gongdeLuBox;
-          },
-          // 上传功德盒子
-          commitGD() {
-            this.shuangchuanBox = !this.shuangchuanBox;
-            this.text = "";
-            if (this.text == "" || this.count == 0) {
-              this.isCommit = true;
-            }
-          },
-          closeGDL() {
-            this.shuangchuanBox = !this.shuangchuanBox;
-          },
-          // 上传功德
-          GDbtn() {
-            console.log(this.sendMsg);
-            if (this.sendMsg == 0) {
-              // 用户储存当前时间
-              localStorage.setItem("sendMsg", 1);
-              this.sendMsg = 1;
-              this.isCommit = true;
-              const params = new URLSearchParams();
-              params.append("userName",this.text);
-              params.append("count",countEncrypt(qqq(this.count+"")));
-              axios.post("submit",params).then(res=>{
-                this.$message({
-                  message: "恭喜你，普信上传成功",
-                  type: "success",
-                });
-                this.text = "";
-              }).catch(err=>{
-                console.log(err)
-              })
-            } else {
-              this.$message.error("一天只能上传一次哦");
-              this.text = "";
-            }
-          },
-          Time() {
-            // 当前时间
-            const date = new Date().getTime();
-            // 0点的时间
-            let CLEARTIME = localStorage.getItem("CLEARTIME");
-            let count = localStorage.getItem("count");
-            if (date > CLEARTIME) {
-              localStorage.setItem("count", qqq("0"));
-              localStorage.setItem("sendMsg", 0);
-              localStorage.setItem("nextDay", false);
-            }
-          },
-          // 以下是获取当天23点的时间。
-          GetFristTime() {
-            // 是否到了第二天
-            let nextDay = localStorage.getItem("nextDay");
-            if (nextDay == null) {
-              localStorage.setItem("nextDay", false);
-            }
-            nextDay = localStorage.getItem("nextDay");
-            // 当日23点59分59秒的时间戳
-            if (nextDay == "false") {
-              this.getClearTime();
-            }
-          },
-          getClearTime() {
-            const CLEARTIME = new Date(
-              new Date().setHours(0, 0, 0, 0) + 24 * 60 * 60 * 1000 - 1
-            ).getTime();
-            localStorage.setItem("CLEARTIME", CLEARTIME);
-            localStorage.setItem("nextDay", true);
-          },
-          crazyTemple() {
-            if (d == 4 && this.main == true) {
-              this.$alert(
-                "今天是疯狂星期寺活动！普信之力！！翻倍！！！",
-                "疯狂星期寺",
-                {
-                  confirmButtonText: "确定",
-                }
-              );
-            }
-          },
-        },
-        watch: {
-          text(newName, oldName) {
-            if (newName !== "") {
-              this.isCommit = false;
-            } else {
-              this.isCommit = true;
-            }
-          },
-        },
-      };
-      const app = Vue.createApp(App);
-      app.use(ElementPlus);
-      app.mount("#app");
-    </script>
-  </body>
+<!-- saved from url=(0022)https://undertale.com/ -->
+<html lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta content="width=device-width" name="viewport">
+		<meta content="普信！！！！！" name="description">
+		<meta content="Toby Fox" name="author">
+		<link href="https://undertale.com/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+		<link href="https://undertale.com/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+		<link href="https://undertale.com/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+		<link href="https://undertale.com/manifest.json" rel="manifest">
+		<meta content="#000000" name="theme-color">
+		<title>普信殿堂</title>
+		<link href="./UNDERTALE_files/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="./UNDERTALE_files/main.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<main class="wrapper" id="content">
+			<div class="main container">
+				<div class="row">
+					<div class="col-md-offset-2 col-md-8" id="logo">
+						<h1><img alt="UNDERTALE"
+									class="img-responsive" src="1.png"><span
+									class="sr-only">普信</span></h1>
+					</div>
+				</div>
+			</div>
+			<div class="main container">
+				<div class="row">
+					<div class="col-lg-offset-1 col-lg-10 col-sm-12" id="platforms_container">
+						<h2 style="margin-top: 15px">普信殿堂</h2>
+					</div>
+				</div>
+			</div>
+			<div class="main container big-margins" id="news">
+				<h2>更多功能在汲取普信之力</h2>
+				<hr>
+				<div class="row">
+					<div class="announcement col-md-4"><a aria-label="DELTARUNE Status Update September 2021"
+							href="pu.html">
+							<h2><span class="yellow">普信！</span><br>木鱼！<br><small>Sept 2022</small></h2>
+						</a></div>
+					<div class="announcement col-md-4"><a aria-label="UNDERTALE LINE Stickers Volume 3"
+							href="story.html"><img alt="Sans with basketballs" loading="lazy"
+								src="2.png" style="max-height: 150px; max-width: 150px">
+							<h2><span class="yellow">表情包</span><br>嘿嘿:<br>pusei forever!</h2>
+						</a><a aria-label="UNDERTALE iMessage Stickers Volume 3"
+							href="story.html">
+							<h3 style="margin-top: 15px">(普信真是牛逼！)</h3>
+						</a></div>
+					<div class="announcement col-md-4">
+							<h2><span class="yellow">普信佑</span><br>我<br><small>平安！</small></h2>
+						</div>
+					<div class="announcement col-md-4">
+							<h2><span class="yellow">普信</span><br>光辉<br>万岁！
+							</h2>
+						</div>
+					<div class="announcement col-md-4"><a aria-label="UNDERTALE LINE Stickers Volume 2"
+							href="https://line.me/S/sticker/12885547"><img alt="Papyrus laughing" loading="lazy"
+								src="3.png" style="max-height: 150px; max-width: 150px">
+							<h2><span class="yellow">客官，为普信打赏普信之力膨胀！</span><br>没错，我是……<br>资本家</h2>
+						</a><a aria-label="UNDERTALE iMessage Stickers Volume 2"
+							href="https://apps.apple.com/us/app/undertale-stickers-vol-2/id1536815304">
+							<h3 style="margin-top: 15px">(网站流量一天要花0.9元!一人贡献一毛钱！)</h3>
+						</a></div>
+						<div class="announcement col-md-4"><a aria-label="UNDERTALE LINE Stickers Volume 2"
+								href="https://line.me/S/sticker/12885547"><img alt="Papyrus laughing" loading="lazy"
+									src="7.jpg" style="max-height: 150px; max-width: 150px">
+								<h2><span class="yellow">嘿嘿，这里还有pusei本pu！</span><br>那么……<br>交钱吧！</h2>
+							</a><a aria-label="UNDERTALE iMessage Stickers Volume 2"
+								href="https://apps.apple.com/us/app/undertale-stickers-vol-2/id1536815304">
+								<h3 style="margin-top: 15px">(一元100普信点，集齐1000点即可获得普信之王的专属称号！)</h3>
+							</a></div>
+		
+				</div>
+			</div>
+			<div id="announcement_container">
+				<div class="main container" id="announcement"><a
+						aria-label="If you completed UNDERTALE, you may be interested in DELTARUNE"
+						href="story.html">
+						<div class="row" style="margin-top: 0;">
+							<div class="announcement col-md-offset-2 col-md-8">
+								<h2>想要了解pusei吗,<br>你一定会感兴趣的！<br></h2>
+							</div>
+						</div>
+					</a></div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<div class="col-xs-offset-1 col-xs-10">
+					<div id="footer-dog"><img alt="Annoying Dog" src="./UNDERTALE_files/dog.png"></div><a
+						class="footer-link">pusei狗不摸摸吗？</a><a
+						aria-label="Privacy Policy" class="footer-link"
+						><small>能提高pusei之力哦！</small></a>
+					
+			</div>
+		</footer>
+		<script src="./UNDERTALE_files/jquery.js.下载"></script>
+		<script src="./UNDERTALE_files/bootstrap.js.下载"></script>
+		<!--What are you doing?Looking for secrets?Don't put your nose where it doesn't belong.Or you might learn something you DON'T like...Hee hee hee.-->
+		<!-- Undertale and all associated characters (C) Toby Fox 2013-2021. Java by rich. -->
+		<!-- Cloudflare Pages Analytics -->
+		<script defer="" src="./UNDERTALE_files/beacon.min.js.下载"
+			data-cf-beacon="{&quot;token&quot;: &quot;36ebf8fa13014ae9ad7596f3cb932aa8&quot;}"></script>
+		<!-- Cloudflare Pages Analytics -->
+		<script defer="" src="./UNDERTALE_files/vaafb692b2aea4879b33c060e79fe94621666317369993"
+			integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
+			data-cf-beacon="{&quot;rayId&quot;:&quot;7672421bccbd980c&quot;,&quot;version&quot;:&quot;2022.11.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;35d7216b9596490c99152d7161320e6d&quot;,&quot;si&quot;:100}"
+			crossorigin="anonymous"></script>
+	</body>
 </html>
